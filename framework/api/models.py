@@ -25,7 +25,7 @@ class APIResponse:
         """Return the parsed JSON body (same as ``.body`` when JSON was returned)."""
         return self.body
 
-    def get(self, *keys: str, default: Any = None) -> Any:
+    def get(self, *keys: "str | int", default: Any = None) -> Any:
         """Navigate nested JSON body with a key path.
 
         Example::
@@ -35,7 +35,9 @@ class APIResponse:
         node: Any = self.body
         for key in keys:
             if isinstance(node, dict):
-                node = node.get(key, default)
+                if key not in node:
+                    return default
+                node = node[key]
             elif isinstance(node, list) and isinstance(key, int):
                 try:
                     node = node[key]

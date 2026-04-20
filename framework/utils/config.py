@@ -43,7 +43,9 @@ class Config:
         for key in keys:
             if not isinstance(node, dict):
                 return default
-            node = node.get(key, default)
+            if key not in node:
+                return default
+            node = node[key]
         return node
 
     # ------------------------------------------------------------------

@@ -154,7 +154,7 @@ class AITestGenerator:
             # Strip markdown fences if the model wrapped the code
             if content.startswith("```"):
                 lines = content.splitlines()
-                lines = [l for l in lines if not l.startswith("```")]
+                lines = [line for line in lines if not line.startswith("```")]
                 content = "\n".join(lines)
             logger.info("AI generated %d chars of test code", len(content))
             return content.strip()

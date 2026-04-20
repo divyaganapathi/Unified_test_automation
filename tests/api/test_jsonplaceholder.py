@@ -169,7 +169,7 @@ class TestDeletePost:
     def test_delete_returns_empty_body(self, api_client: APIClient) -> None:
         response = api_client.delete("/posts/1")
         # JSONPlaceholder returns {}
-        assert response.body == {} or response.body == ""
+        assert response.body in ({}, "")
 
 
 # ===========================================================================

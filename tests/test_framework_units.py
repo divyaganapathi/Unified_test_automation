@@ -51,6 +51,21 @@ class TestConfig:
     def test_api_timeout_is_positive(self) -> None:
         assert Config().api_timeout > 0
 
+    def test_get_nested_value(self) -> None:
+        config = Config()
+        timeout = config.get("api", "timeout")
+        assert timeout is not None and int(timeout) > 0
+
+    def test_get_missing_key_returns_default(self) -> None:
+        config = Config()
+        result = config.get("nonexistent", "key", default="fallback")
+        assert result == "fallback"
+
+    def test_get_missing_intermediate_key_returns_default(self) -> None:
+        config = Config()
+        result = config.get("api", "nonexistent_key", default=42)
+        assert result == 42
+
 
 # ===========================================================================
 # DataProvider
@@ -281,3 +296,10 @@ class TestTestAnalyzer:
         result = analyzer.analyze(path)
         assert isinstance(result, str)
         assert len(result) > 0
+
+    def test_analyze_malformed_json_raises(self, tmp_path) -> None:
+        path = tmp_path / "bad_report.json"
+        path.write_text("{not valid json:::}")
+        analyzer = TestAnalyzer()
+        with pytest.raises(Exception):
+            analyzer.analyze(path)

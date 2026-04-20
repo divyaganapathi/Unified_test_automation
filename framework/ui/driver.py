@@ -86,8 +86,8 @@ class BrowserManager:
         self._context.set_default_timeout(self._timeout)
         logger.info("Browser started")
 
-    def stop(self, failed: bool = False) -> None:
-        """Close the browser and save artefacts on failure."""
+    def stop(self) -> None:
+        """Close the browser."""
         if self._context:
             self._context.close()
         if self._browser:
@@ -122,7 +122,7 @@ class BrowserManager:
         return self
 
     def __exit__(self, exc_type: Any, *_: Any) -> None:
-        self.stop(failed=exc_type is not None)
+        self.stop()
 
     # ------------------------------------------------------------------
     # Internal

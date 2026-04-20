@@ -1,0 +1,21 @@
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py", "*_test.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = [
+    "--strict-markers",
+    "--tb=short",
+    "-v",
+]
+norecursedirs = ["framework", ".venv", "venv", "dist", "build", "reports"]
+filterwarnings = [
+    "ignore::pytest.PytestCollectionWarning",
+]
+markers = [
+    "api: marks tests as API tests",
+    "ui: marks tests as UI tests",
+    "smoke: marks tests as smoke tests",
+    "regression: marks tests as regression tests",
+    "slow: marks tests as slow-running tests",
+]

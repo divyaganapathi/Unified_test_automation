@@ -1,0 +1,48 @@
+# =============================================================================
+# General settings
+# =============================================================================
+environment: dev
+log_level: INFO
+report_dir: reports
+
+# =============================================================================
+# API settings
+# =============================================================================
+api:
+  base_url: https://jsonplaceholder.typicode.com
+  timeout: 30
+  retry_count: 3
+  retry_delay: 1  # seconds
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+
+# =============================================================================
+# UI settings
+# =============================================================================
+ui:
+  base_url: https://example.com
+  browser: chromium          # chromium | firefox | webkit
+  headless: true
+  slow_mo: 0                 # milliseconds between actions (useful for debugging)
+  viewport:
+    width: 1280
+    height: 720
+  timeout: 30000             # milliseconds
+  screenshot_on_failure: true
+  video_on_failure: false
+
+# =============================================================================
+# AI settings
+# =============================================================================
+ai:
+  model: gpt-4o-mini
+  max_tokens: 2048
+  temperature: 0.2
+  enabled: true              # set false to skip AI features without errors
+
+# =============================================================================
+# Test data settings
+# =============================================================================
+data:
+  faker_locale: en_US

@@ -23,7 +23,7 @@ export class CapcoHomePage {
 
   constructor(page: Page) {
     this.page = page;
-    this.acceptCookiesButton = page.getByRole('button', { name: /accept.*cookies/i });
+    this.acceptCookiesButton = page.getByRole('button', { name: 'Accept All Cookies' });
     // Use aria-controls to uniquely identify the "Open search" button
     this.searchButton = page.locator('button[aria-controls="js-search-panel"]');
     this.searchInput = page.getByRole('textbox', { name: /search/i });

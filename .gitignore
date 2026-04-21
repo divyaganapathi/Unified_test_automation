@@ -8,3 +8,5 @@ node_modules/
 /playwright/.auth/
 # Test files
 /tests/
+# Environment variables (contains secrets)
+.env

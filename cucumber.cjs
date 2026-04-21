@@ -2,7 +2,7 @@ module.exports = {
   default: {
     require: [
       '**/step-definitions/**/*.ts',
-      'hooks/**/*.ts'
+      './hooks/**/*.ts'
     ],
     requireModule: ['tsx/cjs'],
     format: [

@@ -123,12 +123,14 @@ export function validateSearchSchema(response: any): { valid: boolean; errors: s
     }
 
     // Validate optional fields have correct types
-    if (article.ImageUrl && typeof article.ImageUrl !== 'string') {
-      errors.push(`${articlePath}.ImageUrl: Must be string`);
+    if (!('ImageUrl' in article) || article.ImageUrl === null) {
+      errors.push(`${articlePath}.ImageUrl: Required field is missing or null`);
+    } else if (typeof article.ImageUrl !== 'string') {
+      errors.push(`${articlePath}.ImageUrl: Must be a string, got ${typeof article.ImageUrl}`);
     }
 
-    if (!Array.isArray(article.Topics)) {
-      errors.push(`${articlePath}.Topics: Must be an array`);
+    if (article.Topics != null && !Array.isArray(article.Topics)) {
+      errors.push(`${articlePath}.Topics: Must be an array when present`);
     }
 
     if (typeof article.Author !== 'string') {

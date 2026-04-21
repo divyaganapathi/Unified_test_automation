@@ -54,7 +54,7 @@ Then('search results count should match {string} API response for {string}', asy
   logger.info(`API returned TotalCount`, 'API_VALIDATION', { expectedCount, searchQuery });
   
   // Verify the count matches
-  await homePage.verifyResultsTextVisible(expectedCount, searchQuery);
+  await homePage.verifyResultsTextVisible(String(expectedCount), searchQuery);
 });
 
 Then('I validate the search results contains text {string}', async function (this: ICustomWorld, searchQuery: string) {

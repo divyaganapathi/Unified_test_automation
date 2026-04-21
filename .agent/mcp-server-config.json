@@ -1,0 +1,27 @@
+{
+  "mcpServers": {
+    "playwright-test-healer": {
+      "command": "node",
+      "args": [],
+      "env": {
+        "AGENT_TYPE": "test-healer",
+        "PROJECT_ROOT": "${workspaceFolder}"
+      },
+      "disabled": false
+    }
+  },
+  "tools": {
+    "semantic_search": {
+      "description": "Search codebase for failing selector/locator patterns"
+    },
+    "read_file": {
+      "description": "Read test files and POM classes"
+    },
+    "grep_search": {
+      "description": "Find specific error patterns in test output"
+    },
+    "replace_string_in_file": {
+      "description": "Update selectors and locators in POM"
+    }
+  }
+}

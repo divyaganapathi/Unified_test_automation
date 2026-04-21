@@ -1,0 +1,23 @@
+node_modules/
+.env
+.env.local
+*.log
+cucumber-report.html
+cucumber-report.json
+cucumber-report.xml
+.DS_Store
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+# Test Results
+test-results/
+playwright-report/
+# Playwright
+.playwright/
+downloads/
+# Test files (if needed, comment out if you want to track tests)
+/tests/
+# JavaScript Files
+JavaScriptFiles/

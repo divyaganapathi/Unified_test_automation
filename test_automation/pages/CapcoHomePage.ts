@@ -40,6 +40,7 @@ export class CapcoHomePage {
 
   async acceptAllCookies(): Promise<void> {
     await expect(this.acceptCookiesButton).toBeVisible();
+    await this.page.waitForLoadState('networkidle'); // Wait for any animations
     await this.acceptCookiesButton.click();
   }
 

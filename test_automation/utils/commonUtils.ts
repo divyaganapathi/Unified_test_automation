@@ -39,15 +39,6 @@ export async function softVisualCheck(page: Page | undefined, name: string) {
     console.error(`✗ Visual check failed for ${name}:`, e);
   }
 }
-export async function interceptSearchApiToReturnError(page:Page, endpoint: string, errorCode: number, searchQuery: string): Promise<void> {
-  const url = `${process.env.BASE_URL}${endpoint}?searchQuery=${encodeURIComponent(searchQuery)}`;
-  await page.route(url, (route) => {
-    route.fulfill({
-      status: errorCode,
-      body: JSON.stringify({ error: `Simulated ${errorCode} error for ${searchQuery}` }),
-    });
-  });
-}
 /**
  * Playwright visual regression test with baseline, current, and diff screenshots
  * First run creates baseline, subsequent runs compare and generate diffs

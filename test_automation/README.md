@@ -1,4 +1,4 @@
-# Capco BDD Test Automation Framework
+# BDD Test Automation Framework
 
 This project implements a comprehensive BDD (Behavior-Driven Development) testing framework using **Cucumber** and **Playwright** for automated UI and API testing.
 
@@ -426,9 +426,9 @@ ISC
 ## Reports
 
 After running tests, reports are generated in:
-- `CAPCO/cucumber-report.html` - HTML report
-- `CAPCO/cucumber-report.json` - JSON format
-- `CAPCO/cucumber-report.xml` - JUnit XML format
+- `test_automation/cucumber-report.html` - HTML report
+- `test_automation/cucumber-report.json` - JSON format
+- `test_automation/cucumber-report.xml` - JUnit XML format
 
 ## Environment Variables
 
@@ -444,9 +444,9 @@ To debug tests:
 
 ## Adding New Scenarios
 
-1. Add feature file in `CAPCO/features/`
-2. Create page object in `CAPCO/pages/` if needed
-3. Implement steps in `CAPCO/step-definitions/`
+1. Add feature file in `test_automation/features/`
+2. Create page object in `test_automation/pages/` if needed
+3. Implement steps in `test_automation/step-definitions/`
 4. Run tests with `npm run test:bdd`
 
 ## Best Practices

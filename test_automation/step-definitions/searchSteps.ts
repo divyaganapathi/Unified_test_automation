@@ -57,7 +57,7 @@ Then('search results count should match {string} API response for {string}', asy
   await homePage.verifyResultsTextVisible(expectedCount, searchQuery);
 });
 
-Then('I validate the search results contain expected keywords for {string}', async function (searchQuery) {
+Then('I validate the search results contains text {string}', async function (this: ICustomWorld, searchQuery: string) {
   await homePage.verifyResultsTextVisible(searchQuery, searchQuery);
 });
 
@@ -100,13 +100,16 @@ When('I intercept the {string} API to fail', async function (this: ICustomWorld,
 });
 
 Then('I should see {string} heading', async function (this: ICustomWorld, headingText: string) {
-  try {
-    // Wait for heading to appear
-    await expect(homePage.noResultsHeading).toBeVisible({ timeout: 10000 }).catch(() => {
-      console.warn(`⚠️ Heading "${headingText}" not found`);
-    });
-    console.log(`✓ Heading "${headingText}" displayed`);
-  } catch (e) {
-    console.warn(`⚠️ Heading check failed:`, e);
-  }
+  // try {
+  //   // Wait for heading to appear
+  //   await expect(homePage.noResultsHeading).toBeVisible({ timeout: 10000 }).catch(() => {
+  //     console.warn(`⚠️ Heading "${headingText}" not found`);
+  //   });
+  //   console.log(`✓ Heading "${headingText}" displayed`);
+  // } catch (e) {
+  //   console.warn(`⚠️ Heading check failed:`, e);
+  // }
+  await expect(homePage.noResultsHeading).toBeVisible({ timeout: 10000 });
+  await expect(homePage.noResultsHeading).toContainText(headingText);
+  console.log(`✓ Heading "${headingText}" displayed`);
 });

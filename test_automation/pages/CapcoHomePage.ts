@@ -145,7 +145,6 @@ export class CapcoHomePage {
     if (parseInt(actualCount) === 0) {
       throw new Error(`No results found. Expected ${expectedCount} results but got 0. Results element may not exist on page.`);
     }
-    this.page.pause();
     expect(parseInt(actualCount)).toBe(expectedCount);
   }
 

@@ -29,13 +29,6 @@ Given('I make a GET request to {string} with query parameters:', async function 
     queryParams[key] = value as string;
   });
 
-  // // Build URL with query parameters
-  // const baseUrl = process.env.CAPCO_BASE_URL;
-  // const params = new URLSearchParams(queryParams);
-  // requestUrl = `${baseUrl}${endpoint}?${params.toString()}`;
-
-  // console.log(`[API] GET ${requestUrl}`);
-
   try {
     apiResponse = await apiUtils.getSearchResultsForQuery(this.apiRequest!, endpoint, queryParams.searchQuery || '', parseInt(queryParams.itemsPerPage || '8'));
     apiResponseData = await apiResponse.json();

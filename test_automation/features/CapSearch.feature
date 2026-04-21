@@ -11,7 +11,7 @@ Feature: Capco Search Functionality
     And I click submit search button
     And I should see "<no_of_results>" for "<Search_text>"
     And search results count should match "/api/Search/ResultList" API response for "<Search_text>"
-    And I validate the search results contain expected keywords for "<Search_text>"
+    And I validate the search results contains text "<Search_text>"
 
   Examples:
   |Search_text|no_of_results|
@@ -25,7 +25,7 @@ Feature: Capco Search Functionality
     And I enter search text "<Search_text>"
     And I intercept the "/api/Search/ResultList" API to fail
     And I click submit search button
-    And I should see "No results" heading
+    And I should see "No1 results" heading
 
   Examples:
   |Search_text|

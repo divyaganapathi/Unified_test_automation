@@ -19,6 +19,7 @@ module.exports = {
     dryRun: false,
     strict: true,
     timeout: 60000,
-    paths: ['**/features/**/*.feature']
+    paths: ['**/features/**/*.feature'],
+    publish: false
   }
 };

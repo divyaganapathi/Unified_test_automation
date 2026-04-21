@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test:bdd": "cucumber-js && start test_automation/cucumber-report.html",
+    "test:bdd": "cucumber-js",
+    "test:bdd:report": "cucumber-js && start test_automation/cucumber-report.html",
+    "test:careers": "cucumber-js --tags @careers",
     "test:bdd:headed": "set HEADLESS=false && cucumber-js && start test_automation/cucumber-report.html",
     "test:bdd:debug": "cucumber-js --publish-quiet",
     "test:bdd:dry-run": "cucumber-js --dry-run"

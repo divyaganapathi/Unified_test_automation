@@ -2,7 +2,7 @@ Feature: Capco Search Functionality
   As a user
   I want to search for content on Capco website
   So that I can find relevant information
-  @search
+  @search @smoke
   Scenario Outline: Search for News & Events and validate results
     Given I navigate to Capco homepage
     And I accept all cookies
@@ -30,7 +30,6 @@ Feature: Capco Search Functionality
   Examples:
   |Search_text|
   |News & Events|
-
 
   @careers
   Scenario Outline: Search for SDET role in careers with location filter and validate against API

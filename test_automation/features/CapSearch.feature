@@ -17,7 +17,7 @@ Feature: Capco Search Functionality
   |Search_text|no_of_results|
   |News & Events|2 results|
 
-  @search-api-failue
+  @search-api-failure
   Scenario Outline: Search for News & Events and validate API failure handling
     Given I navigate to Capco homepage
     And I accept all cookies
@@ -25,7 +25,7 @@ Feature: Capco Search Functionality
     And I enter search text "<Search_text>"
     And I intercept the "/api/Search/ResultList" API to fail
     And I click submit search button
-    And I should see "No1 results" heading
+    And I should see "No results" heading
 
   Examples:
   |Search_text|

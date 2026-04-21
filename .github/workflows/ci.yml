@@ -35,7 +35,6 @@ jobs:
 
       - name: Run BDD tests
         run: npm run test:bdd
-        continue-on-error: true
         env:
           HEADLESS: 'true'
           CI: 'true'
@@ -50,14 +49,6 @@ jobs:
             test_automation/cucumber-report.json
             test_automation/__screenshots__/
             test-results/
-          retention-days: 30
-
-      - name: Publish test results
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: playwright-report
-          path: playwright-report/
           retention-days: 30
 
       - name: Comment PR with test results
